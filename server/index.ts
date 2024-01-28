@@ -10,7 +10,7 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 const server = http.createServer(app);
-const { PORT } = process.env || 4000;
+const { PORT } = process.env || "4000";
 
 app.use(cors());
 app.use(express.json());
@@ -20,7 +20,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
   console.log("Connected to MongoDB");
-  server.listen(PORT, () => {
+  server.listen("https://telegram-clone-api.vercel.app/", () => {
     console.log(`Server running on port http://localhost:${PORT}`);
   });
 });
