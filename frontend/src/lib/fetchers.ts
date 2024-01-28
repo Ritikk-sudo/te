@@ -37,6 +37,7 @@ export async function fetchUser(
     method: "GET",
     headers: {
       Authorization: `${accessToken}`,
+      
     },
   });
   const user = await response.json();
