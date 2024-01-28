@@ -20,7 +20,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
   console.log("Connected to MongoDB");
-  server.listen("https://telegram-clone-api.vercel.app/", () => {
+  server.listen(PORT, () => {
     console.log(`Server running on port http://localhost:${PORT}`);
   });
 });
