@@ -27,7 +27,7 @@ db.once("open", () => {
 
 const io = new Server(server, {
   cors: {
-    origin: "https://telegram-clone-lac.vercel.app/",
+    origin: "https://telegram-clone-lac.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
