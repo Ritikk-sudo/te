@@ -18,7 +18,7 @@ function MessageList() {
 
 const [parent] = useAutoAnimate();
 
-const socket=io("https://telegram-clone-api.vercel.app/");
+const socket=io("http://localhost:4000");
 
 socket.on("refresh", () => {
   fetchMessages(sender,reciver,setMessages)
