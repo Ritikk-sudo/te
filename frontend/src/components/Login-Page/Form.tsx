@@ -15,7 +15,7 @@ function Form() {
         if (cookie.user) {
             router.push("/chat")
         }
-    },[cookie.user,router])
+    },[cookie.user])
   return (
       <form onSubmit={(e)=>handleSubmit(e,router,avatarId,socket)} className='flex flex-col gap-5'>
           {/* AVATAR */}
