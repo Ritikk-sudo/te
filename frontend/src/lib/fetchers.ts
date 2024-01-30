@@ -27,7 +27,7 @@ export async function handleSubmit(
     socket.emit("joined", "new user");
     router.push("/chat");
   } catch (err) {
-    console.log(err);
+    console.log("client -",err);
   }
 }
 
