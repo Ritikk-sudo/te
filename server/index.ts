@@ -12,18 +12,17 @@ const app = express();
 const server = http.createServer(app);
 const { PORT } = process.env || "4000";
 
-app.use(
-  cors({
-    // @ts-ignore
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Credentials": "true",
-    },
-  })
-);
+app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Max-Age", "1800");
+  res.setHeader("Access-Control-Allow-Headers", "content-type");
+  res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+   });
 
 mongoose.connect(process.env.MONGO_URL!);
 const db = mongoose.connection;
@@ -37,8 +36,9 @@ db.once("open", () => {
 
 const io = new Server(server, {
   cors: {
-    origin: "https://telegram-clone-lac.vercel.app",
-    methods: ["GET", "POST"],
+    // origin: "https://telegram-clone-lac.vercel.app",
+    origin: "http://localhost:3000",
+    // methods: ["GET", "POST"],
     credentials: true,
   },
 });

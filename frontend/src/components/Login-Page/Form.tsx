@@ -9,13 +9,13 @@ import { useCookies } from 'react-cookie';
 function Form() {
     const [avatarId, setAvatarId] = useState((Math.random() * 20).toFixed());
     const router = useRouter();
-    const socket = io("https://telegram-clone-api.vercel.app/");
+    const socket = io("http://localhost:4000");
     const [cookie]=useCookies(["user"])
     useEffect(() => {
         if (cookie.user) {
             router.push("/chat")
         }
-    },[cookie.user])
+    },[cookie.user,router])
   return (
       <form onSubmit={(e)=>handleSubmit(e,router,avatarId,socket)} className='flex flex-col gap-5'>
           {/* AVATAR */}

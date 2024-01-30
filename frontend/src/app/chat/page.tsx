@@ -1,21 +1,18 @@
-import React from "react";
-import SideBar from "@/components/SideBar/SideBar";
-import Messages from "@/components/Chat-Threads/Messages";
-
-
+import Messages from '@/components/Chat-Threads/Messages'
+import Sidebar from '@/components/SideBar/SideBar'
+import React from 'react'
 
 function page() {
   return (
-    <div className="bg-blue-500 min-h-screen ">
-      <div className="mx-auto flex">
+    <div className='min-h-screen'>
+      <div className='mx-auto flex'>
         {/* SIDEBAR */}
-        <SideBar />
-
+        <Sidebar/>
         {/* MESSAGES */}
-        <Messages />
+        <Messages/>
       </div>
     </div>
-  );
+  )
 }
 
-export default page;
+export default page
