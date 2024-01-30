@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
-  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Origin", "https://telegramclone-client.vercel.app/")
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Max-Age", "1800");
   res.setHeader("Access-Control-Allow-Headers", "content-type");
@@ -37,7 +37,7 @@ db.once("open", () => {
 const io = new Server(server, {
   cors: {
     // origin: "https://telegram-clone-lac.vercel.app",
-    origin: "http://localhost:3000",
+    origin: "https://telegramclone-client.vercel.app/",
     // methods: ["GET", "POST"],
     credentials: true,
   },
