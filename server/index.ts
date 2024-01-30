@@ -14,10 +14,13 @@ const { PORT } = process.env || "4000";
 
 app.use(
   cors({
-    allowedHeaders: ["Access-Control-Allow-Origin", "*"],
-    origin: "https://telegram-clone-lac.vercel.app",
-    methods: ["GET", "POST"],
-    credentials: true,
+    // @ts-ignore
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Credentials": "true",
+    },
   })
 );
 app.use(express.json());
