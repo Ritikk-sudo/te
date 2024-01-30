@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World 5");
+  res.send("Hello from server");
 });
 
 mongoose.connect(process.env.MONGO_URL!);
@@ -31,12 +31,9 @@ db.once("open", () => {
 
 const io = new Server(server, {
   cors: {
-    origin: "https://telegram-clone-ebon.vercel.app",
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
-    // @ts-ignore
-    transports: ["websocket", "polling"],
-    allowedHeaders: ["*"],
   },
 });
 
