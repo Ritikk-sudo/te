@@ -2,11 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "start": "node index.ts",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps"
   },
   "keywords": [],
   "author": "",

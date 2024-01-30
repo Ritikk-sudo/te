@@ -3,9 +3,9 @@ import "dotenv/config";
 import http from "http";
 import cors from "cors";
 import mongoose from "mongoose";
-import userRouter from "./userRoutes";
+import userRouter from "./userRoutes.js";
 import { Server } from "socket.io";
-import { User } from "./userModel";
+import { User } from "./userModel.js";
 import jwt from "jsonwebtoken";
 
 const app = express();
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("Hello from server");
 });
 
-mongoose.connect(process.env.MONGO_URL!);
+mongoose.connect(process.env.MONGO_URL);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
 
   socket.on("private message", async (to, message, mySelf) => {
     const user = await User.find({ email: to });
-    const decoded = jwt.verify(mySelf, process.env.ACCESS_TOKEN_SECRET!);
+    const decoded = jwt.verify(mySelf, process.env.ACCESS_TOKEN_SECRET);
     const sender = await User.findById(decoded);
     io.sockets.emit("refresh", "new Message");
 
