@@ -16,15 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
-  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  // res.setHeader("Access-Control-Allow-Credentials", "true");
-  // res.setHeader("Access-Control-Max-Age", "1800");
-  // res.setHeader("Access-Control-Allow-Headers", "content-type");
-  // res.setHeader(
-  //   "Access-Control-Allow-Methods",
-  //   "PUT, POST, GET, DELETE, PATCH, OPTIONS"
-  // );
+  res.send("Hello World 5");
 });
 
 mongoose.connect(process.env.MONGO_URL!);
@@ -40,7 +32,6 @@ db.once("open", () => {
 const io = new Server(server, {
   cors: {
     origin: "https://telegramclone-client.vercel.app",
-    // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   },
