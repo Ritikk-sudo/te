@@ -12,13 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const { PORT } = process.env || "4000";
 
-app.use(
-  cors({
-    origin: "https://telegramclone-client.vercel.app/",
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -43,7 +37,7 @@ db.once("open", () => {
 const io = new Server(server, {
   cors: {
     // origin: "*",
-    origin: "https://telegramclone-client.vercel.app/",
+    origin: "telegramclone-client.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
