@@ -12,7 +12,7 @@ function ChatList({ mySelf }: { mySelf: userProps }) {
     (state: any) => ({ users: state.users, setUsers: state.setUsers }),
     shallow
   );
-  const socket = io("https://telegramclone-six.vercel.app/");
+  const socket = io("https://telegram-clone-api.vercel.app");
   useEffect(() => {
     socket.on("new-user", () => {
       fetchUsers(mySelf, setUsers);

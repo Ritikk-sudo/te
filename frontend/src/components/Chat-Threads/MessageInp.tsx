@@ -18,7 +18,7 @@ function MessageInp() {
     const [showEmojies, setShowEmojies] = useState<boolean>(false);
     const selectedUser = useSelectedUser((state) => state.selectedUser);
     const [cookie,setCookie]=useCookies(["user"])
-    const socket=io("https://telegramclone-six.vercel.app/")
+    const socket=io("https://telegram-clone-api.vercel.app")
 
     function handleSubmit(e: { preventDefault: () => void; }) {
         e.preventDefault();

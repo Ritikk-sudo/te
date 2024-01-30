@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 
 function CallBtn() {
   const router = useRouter();
-  const socket = io("https://telegramclone-six.vercel.app/");
+  const socket = io("https://telegram-clone-api.vercel.app");
   const [cookie] = useCookies(["user"]);
   const selectedUser = useSelectedUser((state) => state.selectedUser);
   const myUser = useUser((state) => state.myUser);
