@@ -18,7 +18,7 @@ function MessageInp() {
     const [showEmojies, setShowEmojies] = useState<boolean>(false);
     const selectedUser = useSelectedUser((state) => state.selectedUser);
     const [cookie,setCookie]=useCookies(["user"])
-    const socket=io("http://localhost:4000")
+    const socket=io("https://telegramclone-ieye.onrender.com/")
 
     function handleSubmit(e: { preventDefault: () => void; }) {
         e.preventDefault();

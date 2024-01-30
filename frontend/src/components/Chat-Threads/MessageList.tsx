@@ -18,7 +18,7 @@ function MessageList() {
 
 const [parent] = useAutoAnimate();
 
-const socket=io("http://localhost:4000");
+const socket=io("https://telegramclone-ieye.onrender.com/");
 
 socket.on("refresh", () => {
   fetchMessages(sender,reciver,setMessages)

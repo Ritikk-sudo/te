@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 
 function CallBtn() {
   const router = useRouter();
-  const socket = io("http://localhost:4000");
+  const socket = io("https://telegramclone-ieye.onrender.com/");
   const [cookie] = useCookies(["user"]);
   const selectedUser = useSelectedUser((state) => state.selectedUser);
   const myUser = useUser((state) => state.myUser);
