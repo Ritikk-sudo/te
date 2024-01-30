@@ -19,6 +19,9 @@ export async function handleSubmit(
       }),
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin":
+          "https://telegramclone-ieye.onrender.com/",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
       },
     });
     socket.emit("joined", "new user");
@@ -37,7 +40,10 @@ export async function fetchUser(
     method: "GET",
     headers: {
       Authorization: `${accessToken}`,
-      
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin":
+        "https://telegramclone-ieye.onrender.com/",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
     },
   });
   const user = await response.json();
